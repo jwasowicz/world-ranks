@@ -1,0 +1,5 @@
+<ul>
+  @for( country of countries(); track country) {
+  <app-country-row [country]="country.name.common" />
+  }
+</ul>

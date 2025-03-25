@@ -1,0 +1,13 @@
+<p>Region</p>
+<div class="grid grid-cols-7 mt-2 gap-2">
+  @for(region of regions(); track region) {
+
+  <button
+    (click)="changeRegion(region)"
+    class="p rounded-[0.8rem] bg-[#282B30]"
+  >
+    {{ region }}
+  </button>
+
+  }
+</div>
