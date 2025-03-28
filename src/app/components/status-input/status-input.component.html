@@ -1,0 +1,28 @@
+<p>Status</p>
+<div class="flex flex-col gap-2">
+  <div class="flex items-center gap-2">
+    <input
+      (change)="handleChange({ member: member.checked })"
+      class="w-5 h-5"
+      [disabled]="independent.checked"
+      #member
+      type="checkbox"
+      name="member"
+      id="member"
+    />
+    <label for="member">Member of the Unitend Nations</label>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <input
+      (change)="handleChange({ independent: independent.checked })"
+      #independent
+      [disabled]="member.checked"
+      class="w-5 h-5"
+      type="checkbox"
+      name="independent"
+      id="independent"
+    />
+    <label for="independent">Independent</label>
+  </div>
+</div>

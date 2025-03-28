@@ -1,4 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { Country } from '../../../models/country.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-row',
@@ -7,5 +9,10 @@ import { Component, input } from '@angular/core';
   styleUrl: './country-row.component.css',
 })
 export class CountryRowComponent {
-  country = input.required<string>();
+  data = input.required<Country>();
+  router = inject(Router);
+
+  checkCountryInfo(countryName: string) {
+    this.router.navigate(['/country', countryName]);
+  }
 }

@@ -1,10 +1,15 @@
 <div
-  class="text-white flex flex-col gap-5 relative bottom-3 w-[100%] h-[80vh] pt-4 pl-2 pr-2 rounded-[0.5rem] bg-[#1B1D1F]"
+  class="text-white flex flex-col gap-5 relative bottom-3 w-[100%] pt-4 pl-2 pr-2 pb-2 rounded-[0.5rem] bg-[#1B1D1F]"
 >
-  <h3>Found 234 countries</h3>
+  <h3>
+    Found
+    {{ isFiltered() ? filteredCountries().length : countries().length }}
+    countries
+  </h3>
 
   <app-search-input />
   <app-sort-input />
   <app-region-filter />
+  <app-status-input />
   <app-country-table />
 </div>

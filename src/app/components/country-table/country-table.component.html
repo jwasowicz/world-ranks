@@ -1,5 +1,16 @@
-<ul>
-  @for( country of countries(); track country) {
-  <app-country-row [country]="country.name.common" />
-  }
-</ul>
+<table class="w-[100%]">
+  <thead>
+    <tr class="grid grid-cols-4">
+      <th>Flag</th>
+      <th>Name</th>
+      <th>Population</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody class="flex flex-col justify-center">
+    @for( country of isFiltered() ? filteredCountries() : countries(); track
+    index; let index = $index;){
+    <app-country-row [data]="country" />
+    }
+  </tbody>
+</table>

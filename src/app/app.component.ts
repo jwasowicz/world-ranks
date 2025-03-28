@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CountryFilterService } from './services/country-filter.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 })
 export class AppComponent {
   title = 'world-raaks';
+
+  private countryFilterService = inject(CountryFilterService);
+
+  ngOnInit() {
+    this.countryFilterService.loadCountries();
+  }
 }

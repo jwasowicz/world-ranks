@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CountryRowComponent } from './country-row/country-row.component';
 import { CountryFilterService } from '../../services/country-filter.service';
 import { Country } from '../../models/country.model';
@@ -11,9 +11,7 @@ import { Country } from '../../models/country.model';
 })
 export class CountryTableComponent {
   private countryFilterService = inject(CountryFilterService);
-  countries = signal<Country[]>([]);
-
-  ngOnInit() {
-    this.countries.set(this.countryFilterService.getCountries()());
-  }
+  isFiltered = this.countryFilterService.isFiltered;
+  countries = this.countryFilterService.countries;
+  filteredCountries = this.countryFilterService.filteredCountries;
 }

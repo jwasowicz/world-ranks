@@ -1,1 +1,17 @@
-<li>{{ country() }}</li>
+<tr
+  (click)="checkCountryInfo(data().name.common)"
+  class="grid grid-cols-4 place-items-center mt-3 text-center"
+>
+  <td>
+    <img class="w-14 h-8" [src]="data().flags.png" [alt]="data().name.common" />
+  </td>
+  <td>
+    {{ data().name.common }}
+  </td>
+  <td>
+    {{ data().population }}
+  </td>
+  <td>
+    {{ data().area }}
+  </td>
+</tr>

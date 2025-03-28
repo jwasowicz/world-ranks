@@ -20,6 +20,7 @@ export class RegionFilterComponent {
   private countryFilterService = inject(CountryFilterService);
 
   changeRegion(region: string) {
+    this.countryFilterService.isFiltered.set(true);
     this.countryFilterService.sortCountryByRegion(region);
   }
 }
