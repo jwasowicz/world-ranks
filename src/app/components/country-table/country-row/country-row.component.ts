@@ -1,10 +1,11 @@
 import { Component, inject, input } from '@angular/core';
 import { Country } from '../../../models/country.model';
 import { Router } from '@angular/router';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-country-row',
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './country-row.component.html',
   styleUrl: './country-row.component.css',
 })

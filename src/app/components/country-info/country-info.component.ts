@@ -1,12 +1,14 @@
 import { Component, effect, inject, OnDestroy, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { Country } from '../../models/country.model';
 import { CountryFilterService } from '../../services/country-filter.service';
+import { HeaderComponent } from '../header/header.component';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-country-info',
-  imports: [],
+  imports: [RouterOutlet, HeaderComponent, DecimalPipe],
   templateUrl: './country-info.component.html',
   styleUrl: './country-info.component.css',
 })
@@ -15,6 +17,7 @@ export class CountryInfoComponent {
   private countryFilterService = inject(CountryFilterService);
   countryName = signal('');
   foundCountry = signal({
+    image: '',
     common: '',
     official: '',
     population: 0,
@@ -41,6 +44,7 @@ export class CountryInfoComponent {
         this.foundCountry.update((country) => {
           return {
             ...country,
+            image: foundCountry.flags.png,
             common: foundCountry.name.common,
             official: foundCountry.name.official,
             population: foundCountry.population,

@@ -1,1 +1,33 @@
-<p>country-info works!</p>
+<router-outlet />
+<div class="overflow-x-hidden p-3 h-screen bg-black text-white space-y-6">
+  <app-header heroTitle="World Ranks" />
+  <img class="pt-15 scale-175" src="resources/hero-image.jpg" alt="hero" />
+  <div
+    class="ml-10 relative mr-10 bottom-[5%] rounded-[0.7rem] flex flex-col h-100 bg-[#1B1D1F]"
+  >
+    <img
+      class="absolute left-[50%] translate-x-[-50%] top-[-80px] w-50 h-40"
+      [src]="foundCountry().image"
+      [alt]="foundCountry().common"
+    />
+    <div class="flex mt-25 flex-col items-center justify-center gap-1">
+      <h1 class="text-2xl">{{ foundCountry().common }}</h1>
+      <h2>{{ foundCountry().official }}</h2>
+    </div>
+
+    <div class="grid grid-cols-2 place-items-center mt-5">
+      <div class="flex gap-4 p-4 bg-[#282B30] rounded-[0.7rem]">
+        <p>Population</p>
+        <span class="border-[#1B1D1F] border-1"></span>
+        <p>{{ foundCountry().population | number }}</p>
+      </div>
+      <div class="flex gap-4 p-4 bg-[#282B30] rounded-[0.7rem]">
+        <p>Area(km<sup>2</sup>)</p>
+        <span class="border-[#1B1D1F] border-1"></span>
+        <p>{{ foundCountry().area | number }}</p>
+      </div>
+
+      <div></div>
+    </div>
+  </div>
+</div>
